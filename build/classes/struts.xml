@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+      "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- action标签是配置的action，name是访问时的路径，class是映射的类，如果没有method，
+	  默认找class中的execute方法，指定method属性时，回去找class中method对应值得方法，
+	 result标签定义返回的页面 -->
+    <struts>
+        <package name="struts2" extends="struts-default">
+            <action name="menu" class="cn.hnust.test.Test04Struts" method="execute">
+                <result name="success">/menu.jsp</result>
+            </action>
+        </package>
+        <!-- 开启开发者模式 ,详细错误提示-->
+        <constant name="struts.devMode" value="true"></constant>
+        
+        <!-- 配置动作 -->
+         <package name="customer" extends="struts-default" namespace="/customer" >
+           
+            <action name="addUICustomer" class="cn.hnust.web.action.CustomerAction" method="addUICustomer">
+                <result name="addUICustomer">/add.jsp</result>
+            </action> 
+         
+            <action name="findAllCustomer" class="cn.hnust.web.action.CustomerAction" method="findAllCustomer">
+                <result name="findAllCustomer">/list.jsp</result>
+            </action>
+            
+        </package>
+    </struts>
+
